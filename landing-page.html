@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARKIVE STUDIO | Creative Agency Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&amp;family=Inter:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#b7b5af",
+              "on-secondary-fixed-variant": "#474742",
+              "on-secondary": "#31312c",
+              "on-primary-fixed": "#171e00",
+              "secondary": "#c9c6c0",
+              "surface-container": "#201f1f",
+              "on-tertiary-fixed-variant": "#324a54",
+              "outline-variant": "#444932",
+              "surface-bright": "#3a3939",
+              "surface-variant": "#353534",
+              "inverse-on-surface": "#313030",
+              "on-primary-container": "#596c00",
+              "surface-container-low": "#1c1b1b",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-dim": "#131313",
+              "on-primary": "#2a3400",
+              "on-background": "#e5e2e1",
+              "secondary-fixed-dim": "#c9c6c0",
+              "secondary-container": "#474742",
+              "tertiary": "#ffffff",
+              "primary-fixed-dim": "#b0d500",
+              "error-container": "#93000a",
+              "surface": "#131313",
+              "on-tertiary-container": "#506873",
+              "on-surface": "#e5e2e1",
+              "error": "#ffb4ab",
+              "primary": "#ffffff",
+              "outline": "#8f9378",
+              "on-error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#3e4c00",
+              "on-secondary-fixed": "#1c1c18",
+              "background": "#0A0A0A",
+              "primary-container": "#caf300",
+              "on-tertiary": "#1b343d",
+              "on-error": "#690005",
+              "primary-fixed": "#caf300",
+              "on-surface-variant": "#c5c9ac",
+              "inverse-primary": "#536600",
+              "surface-tint": "#b0d500",
+              "tertiary-fixed-dim": "#b1cad7",
+              "on-tertiary-fixed": "#041e28",
+              "tertiary-fixed": "#cde7f3",
+              "tertiary-container": "#cde7f3",
+              "surface-container-highest": "#353534",
+              "surface-container-high": "#2a2a2a",
+              "secondary-fixed": "#e5e2db",
+              "inverse-surface": "#e5e2e1",
+              "brand-acid": "#D4FF00",
+              "brand-paper": "#F0EDE6"
+            },
+            fontFamily: {
+              headline: ["Playfair Display", "serif"],
+              body: ["Neue Haas Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
+              label: ["Neue Haas Grotesk", "Helvetica Neue", "Arial", "sans-serif"]
+            },
+            borderRadius: {
+              "none": "0px",
+              "DEFAULT": "0px",
+              "lg": "0px",
+              "xl": "0px",
+              "full": "9999px"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #F0EDE6;
+            font-family: 'Neue Haas Grotesk', 'Helvetica Neue', sans-serif;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .scroll-indicator {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, #D4FF00 50%, transparent 50%);
+            background-size: 100% 200%;
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+        @keyframes scrollLine {
+            0% { background-position: 0 -100%; }
+            100% { background-position: 0 100%; }
+        }
+        .ghost-border {
+            border-top: 1px solid rgba(68, 73, 50, 0.2);
+        }
+        .acid-glow {
+            text-shadow: 0 0 15px rgba(212, 255, 0, 0.3);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #D4FF00; }
+    </style>
+</head>
+<body class="selection:bg-brand-acid selection:text-on-primary">
+<!-- Progress Bar -->
+<div class="fixed top-0 left-0 w-full h-1 z-[100] bg-brand-acid origin-left scale-x-0" id="progress-bar"></div>
+<!-- Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-xl flex justify-between items-center px-6 md:px-12 py-8 w-full">
+<div class="text-2xl font-black tracking-tighter text-[#F0EDE6] uppercase">ARKIVE STUDIO</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="text-[#D4FF00] font-bold text-sm tracking-widest uppercase transition-colors duration-300" href="#">Work</a>
+<a class="text-[#F0EDE6] uppercase text-sm tracking-widest hover:text-[#D4FF00] transition-colors duration-300" href="#">Services</a>
+<a class="text-[#F0EDE6] uppercase text-sm tracking-widest hover:text-[#D4FF00] transition-colors duration-300" href="#">About</a>
+<a class="text-[#F0EDE6] uppercase text-sm tracking-widest hover:text-[#D4FF00] transition-colors duration-300" href="#">Contact</a>
+<button class="bg-[#D4FF00] text-[#2a3400] px-8 py-3 font-bold uppercase tracking-widest hover:translate-x-1 transition-all duration-200">Hire Us</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-brand-paper">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col md:flex-row items-center pt-24 px-6 md:px-12 overflow-hidden">
+<div class="w-full md:w-7/12 flex flex-col justify-center z-10 py-12">
+<span class="text-xs tracking-[0.3em] font-bold text-brand-acid mb-8 uppercase">ARKIVE STUDIO — EST 2015</span>
+<h1 class="playfair text-6xl md:text-[96px] leading-[0.9] font-black mb-8 tracking-tighter max-w-4xl">
+                WE MAKE THINGS PEOPLE REMEMBER.
+            </h1>
+<p class="text-brand-paper/60 text-lg md:text-xl tracking-widest font-light">Branding. Photography. Digital.</p>
+</div>
+<div class="w-full md:w-[42%] h-[614px] md:h-[819px] bg-surface-container relative grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden">
+<img alt="Editorial Studio" class="w-full h-full object-cover" data-alt="Avant-garde editorial fashion photography in a stark concrete studio with dramatic high-contrast lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPrjlFHEWq5xGHkDawuddGJCSptTDvvMYiBbVe_CG1xGln771pwgUIRuhV0OjuYT16e-K6kggVJ5cihvq_mGMTFZq2hb03UvZUJwh4k6duc66e6g5aCnrqTv8gsK_NpkCaI5_JqikMoc7KNvWjyuEncRFBFxHaFPBMlHn6Sw9a0ad9rbM2I7tDTbFEWQ8TIZMEaAw-PTTakJ5w6vm67ikDCBcrCaOenFzQPb6B1H43FNvwx1RO0DATaGjCjD5f9MiT8gUmxmpSevY"/>
+<div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 hidden md:block">
+<div class="scroll-indicator"></div>
+</div>
+</section>
+<!-- Work Section (01) -->
+<section class="py-32 px-6 md:px-12 bg-surface">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-xs tracking-[0.5em] text-brand-acid uppercase font-black">01 / SELECTED WORK</span>
+<h2 class="playfair text-5xl md:text-7xl font-black mt-4">CRAFTED CASES</h2>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-4xl text-brand-acid animate-pulse">drag_click</span>
+</div>
+</div>
+<div class="flex flex-nowrap overflow-x-auto gap-8 pb-12 no-scrollbar cursor-grab active:cursor-grabbing" id="work-container">
+<!-- Card 1 -->
+<div class="min-w-[320px] md:min-w-[520px] group relative h-[650px] bg-surface-container-low overflow-hidden">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist architectural structure with sharp geometric angles under a bright midday sun creating deep black shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfHmoXqSpTgFgCn8iycxJ8VF6JCbzkzufd8GkzbJYtAaXOgdL-Fv2sWYUO6-h2CHmiNTaTNmo32vKDo0hCGudESh4LWxFsIMBBir-87pCEuvAZx22ETgHB5EBqyKrPCAmMgEbKf1xoT4MDvFLwCIZXnKJ9FdA_-hKmFqrSzn2BXURF77jcRrV476wCLv30jR__na-4veneK2k0RKYGeM2rtZuE_Qb_Hk_Aj-k1wHM9Xt2pToEjZg_YplX2-5YJqE6AeiRW2YQ0up_Q"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-brand-acid/60 transition-all duration-500 flex flex-col justify-end p-12">
+<span class="text-xs tracking-widest text-brand-paper mb-2 uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">Identity / 2024</span>
+<h3 class="playfair text-4xl font-bold text-brand-paper group-hover:text-on-primary transition-colors duration-300">NOIR ARCHIVE</h3>
+<div class="mt-6 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-on-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[320px] md:min-w-[520px] group relative h-[650px] bg-surface-container-low overflow-hidden">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up of a high-end luxury watch movement with intricate gears and glowing mechanical parts on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe_1wOAViewRBR5TfWUzYz5O_CTrKTnwPboU9JxdMmkwlGbBQZ_dqMuRJM1Xl9FqFTP5Z94eLflTsxLQBWk5FCfsc41GoxhzqVjfZIUGeoxLXsFlUTFR7TefWg3irBS_jF_yFOvqNPQE3iVfvIRUT9YAdDgUGPmpOPKxbE1lYWUGE0jfsP53gtuHywfGNa3o57gj_PAp6t8Q7ELu3yKeyI73LVIvM6UCSMpLOwlfZKtFqQ74YDiWyeBIVBAZfrIrKcabAd7PkVjMZ0"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-brand-acid/60 transition-all duration-500 flex flex-col justify-end p-12">
+<span class="text-xs tracking-widest text-brand-paper mb-2 uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">Digital / 2023</span>
+<h3 class="playfair text-4xl font-bold text-brand-paper group-hover:text-on-primary transition-colors duration-300">CHRONOS TECH</h3>
+<div class="mt-6 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-on-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="min-w-[320px] md:min-w-[520px] group relative h-[650px] bg-surface-container-low overflow-hidden">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vibrant abstract ink swirls in water with sharp liquid details and glowing highlights against a dark void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQTL1RB1RSrkDYg3gkPI08R3cPt_VXm-aXwkJxKlmg_cGpa-e6L_dP0cuSwhtTvraAyqdTMFhHKwEpd_S3w4pKxra2_nzclptxWdcAWzlVA4MT9l714X_A5xtKEwuoyOyk3cEY7rpLuZdcEdU61LJbgdl72_u8Yg3lJOe9_eP2EOCLOOJlVpRmm-1rdVwp4Egzkph6dQpQcOaIkUusp70nsLw5gFlL97n6p82Q8tyxoEtlxuG71driPX_YhKlnVt8R_VFPr0pNCIoI"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-brand-acid/60 transition-all duration-500 flex flex-col justify-end p-12">
+<span class="text-xs tracking-widest text-brand-paper mb-2 uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">Creative / 2024</span>
+<h3 class="playfair text-4xl font-bold text-brand-paper group-hover:text-on-primary transition-colors duration-300">FLUID MOTION</h3>
+<div class="mt-6 transform translate-x-[-20px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+<span class="material-symbols-outlined text-4xl text-on-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (02) -->
+<section class="py-32 px-6 md:px-12 bg-surface-container-lowest grid grid-cols-1 md:grid-cols-2 gap-24">
+<div class="relative">
+<div class="sticky top-40">
+<span class="text-xs tracking-[0.5em] text-brand-acid uppercase font-black">02 / WHAT WE DO</span>
+<div class="mt-8 space-y-4">
+<h2 class="playfair text-7xl md:text-9xl font-black italic opacity-100 transition-opacity duration-500 acid-glow">Brand.</h2>
+<h2 class="playfair text-7xl md:text-9xl font-black italic opacity-20 hover:opacity-100 transition-opacity duration-500">Photo.</h2>
+<h2 class="playfair text-7xl md:text-9xl font-black italic opacity-20 hover:opacity-100 transition-opacity duration-500">Digital.</h2>
+<h2 class="playfair text-7xl md:text-9xl font-black italic opacity-20 hover:opacity-100 transition-opacity duration-500">Strategy.</h2>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="group py-12 ghost-border">
+<div class="flex justify-between items-start cursor-pointer">
+<h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Identity &amp; Branding</h3>
+<span class="material-symbols-outlined text-brand-acid group-hover:rotate-45 transition-transform duration-300">add</span>
+</div>
+<div class="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-700 ease-in-out">
+<p class="mt-6 text-brand-paper/60 text-base leading-relaxed">
+                        We build brands that command attention. From visual linguistics to strategic positioning, we create the foundations for long-term relevance.
+                    </p>
+<ul class="mt-8 space-y-3 text-brand-acid text-sm tracking-widest uppercase">
+<li>— Logo Design</li>
+<li>— Brand Guidelines</li>
+<li>— Verbal Identity</li>
+<li>— Motion Branding</li>
+</ul>
+</div>
+</div>
+<div class="group py-12 ghost-border">
+<div class="flex justify-between items-start cursor-pointer">
+<h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Art Direction</h3>
+<span class="material-symbols-outlined text-brand-acid group-hover:rotate-45 transition-transform duration-300">add</span>
+</div>
+<div class="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-700 ease-in-out">
+<p class="mt-6 text-brand-paper/60 text-base leading-relaxed">
+                        Visual storytelling at its most visceral. We curate every frame to evoke emotion and maintain aesthetic uncompromising standards.
+                    </p>
+<ul class="mt-8 space-y-3 text-brand-acid text-sm tracking-widest uppercase">
+<li>— Photography</li>
+<li>— Set Design</li>
+<li>— Film Direction</li>
+<li>— Post-Production</li>
+</ul>
+</div>
+</div>
+<div class="group py-12 ghost-border">
+<div class="flex justify-between items-start cursor-pointer">
+<h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Digital Experience</h3>
+<span class="material-symbols-outlined text-brand-acid group-hover:rotate-45 transition-transform duration-300">add</span>
+</div>
+<div class="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-700 ease-in-out">
+<p class="mt-6 text-brand-paper/60 text-base leading-relaxed">
+                        High-performance digital products that don't look like everyone else's. We prioritize friction-less utility with brutalist charm.
+                    </p>
+<ul class="mt-8 space-y-3 text-brand-acid text-sm tracking-widest uppercase">
+<li>— UI / UX Design</li>
+<li>— Web Development</li>
+<li>— E-commerce</li>
+<li>— App Systems</li>
+</ul>
+</div>
+</div>
+<div class="group py-12 ghost-border">
+<div class="flex justify-between items-start cursor-pointer">
+<h3 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">Strategic Growth</h3>
+<span class="material-symbols-outlined text-brand-acid group-hover:rotate-45 transition-transform duration-300">add</span>
+</div>
+<div class="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-700 ease-in-out">
+<p class="mt-6 text-brand-paper/60 text-base leading-relaxed">
+                        Data-informed creativity. We find the gaps in the market and fill them with meaningful, impactful brand interactions.
+                    </p>
+<ul class="mt-8 space-y-3 text-brand-acid text-sm tracking-widest uppercase">
+<li>— Market Analysis</li>
+<li>— Campaign Strategy</li>
+<li>— Content Planning</li>
+<li>— Social Ecosystems</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="relative bg-gradient-to-b from-[#0A0A0A] to-[#1C1B1B] py-32 overflow-hidden">
+<div class="px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<h2 class="playfair text-6xl md:text-8xl font-black leading-tight">WE BUILD<br/>FUTURE<br/>LEGACIES.</h2>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<div class="text-5xl font-black text-brand-acid">127</div>
+<div class="text-xs uppercase tracking-widest text-brand-paper/50 mt-2">Projects</div>
+</div>
+<div>
+<div class="text-5xl font-black text-brand-acid">09</div>
+<div class="text-xs uppercase tracking-widest text-brand-paper/50 mt-2">Years</div>
+</div>
+<div>
+<div class="text-5xl font-black text-brand-acid">34</div>
+<div class="text-xs uppercase tracking-widest text-brand-paper/50 mt-2">Awards</div>
+</div>
+</div>
+</div>
+<div class="space-y-8 text-lg md:text-xl leading-relaxed text-brand-paper/70 font-light">
+<p>
+                    ARKIVE is a creative laboratory where art meets industry. We don't believe in "best practices" that lead to mediocrity. We believe in the friction that creates fire.
+                </p>
+<p>
+                    Our team of curators, designers, and developers work at the intersection of luxury and technology, defining the aesthetic of the new digital age.
+                </p>
+<button class="flex items-center gap-4 text-brand-acid uppercase tracking-[0.3em] font-black group">
+                    Our Story 
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="mt-32 border-y border-brand-acid/10 py-12 overflow-hidden whitespace-nowrap bg-surface-container-low">
+<div class="marquee-track flex gap-12">
+<span class="playfair text-4xl md:text-6xl font-black text-brand-acid uppercase">BOLD IDEAS. REAL RESULTS. — ARKIVE STUDIO — UNCOMPROMISING DESIGN. — BOLD IDEAS. REAL RESULTS. — ARKIVE STUDIO — UNCOMPROMISING DESIGN. —</span>
+<span class="playfair text-4xl md:text-6xl font-black text-brand-acid uppercase">BOLD IDEAS. REAL RESULTS. — ARKIVE STUDIO — UNCOMPROMISING DESIGN. — BOLD IDEAS. REAL RESULTS. — ARKIVE STUDIO — UNCOMPROMISING DESIGN. —</span>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-40 px-6 md:px-12 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<h2 class="playfair text-7xl md:text-[120px] font-black leading-none tracking-tighter italic mb-20 text-brand-paper/10 hover:text-brand-acid transition-colors duration-700">READY TO START?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<a class="text-3xl md:text-5xl font-black border-b-4 border-brand-acid pb-2 hover:text-brand-acid transition-colors" href="mailto:hello@arkive.studio">hello@arkive.studio</a>
+<div class="mt-16 space-y-4">
+<p class="text-brand-paper/50 uppercase tracking-widest text-sm">Follow us</p>
+<div class="flex gap-8">
+<a class="hover:text-brand-acid transition-colors" href="#">Instagram</a>
+<a class="hover:text-brand-acid transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-brand-acid transition-colors" href="#">Vimeo</a>
+</div>
+</div>
+</div>
+<form class="space-y-12">
+<div class="relative group">
+<label class="text-xs uppercase tracking-[0.3em] text-brand-paper/40 group-focus-within:text-brand-acid transition-colors">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-brand-paper/20 py-4 px-0 focus:ring-0 focus:border-brand-acid text-2xl transition-all" placeholder="Enter your name" type="text"/>
+</div>
+<div class="relative group">
+<label class="text-xs uppercase tracking-[0.3em] text-brand-paper/40 group-focus-within:text-brand-acid transition-colors">Email</label>
+<input class="w-full bg-transparent border-0 border-b border-brand-paper/20 py-4 px-0 focus:ring-0 focus:border-brand-acid text-2xl transition-all" placeholder="your@email.com" type="email"/>
+</div>
+<div class="relative group">
+<label class="text-xs uppercase tracking-[0.3em] text-brand-paper/40 group-focus-within:text-brand-acid transition-colors">Project Details</label>
+<textarea class="w-full bg-transparent border-0 border-b border-brand-paper/20 py-4 px-0 focus:ring-0 focus:border-brand-acid text-2xl h-32 transition-all" placeholder="Briefly describe your vision"></textarea>
+</div>
+<button class="bg-brand-acid text-on-primary font-black uppercase tracking-widest py-6 px-12 text-xl hover:translate-x-1 transition-transform">SEND IT</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0A0A0A] w-full border-t border-[#444932]/20">
+<div class="max-w-7xl mx-auto px-6 md:px-12 py-24 flex flex-col md:flex-row justify-between items-start gap-16">
+<div class="max-w-md">
+<div class="text-4xl font-black text-[#F0EDE6] mb-8">ARKIVE STUDIO</div>
+<p class="text-brand-paper/40 leading-relaxed max-w-xs">
+                    Curating the visual language of the next generation. Aesthetic excellence since 2015.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-24">
+<div>
+<h4 class="text-xs tracking-widest text-brand-acid uppercase font-black mb-6">Navigation</h4>
+<ul class="space-y-4 text-lg">
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Work</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Services</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">About</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs tracking-widest text-brand-acid uppercase font-black mb-6">Social</h4>
+<ul class="space-y-4 text-lg">
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Instagram</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">LinkedIn</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Vimeo</a></li>
+<li><a class="text-[#F0EDE6] hover:text-[#D4FF00] transition-all duration-300" href="#">Twitter</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="px-6 md:px-12 py-8 border-t border-brand-paper/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest text-brand-paper/30">
+<div>© 2024 ARKIVE STUDIO. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-8">
+<a href="#">PRIVACY POLICY</a>
+<a href="#">TERMS OF SERVICE</a>
+</div>
+</div>
+</footer>
+<!-- Back to top -->
+<button class="fixed bottom-12 right-12 w-16 h-16 bg-brand-acid text-on-primary rounded-full hidden flex items-center justify-center z-[90] shadow-xl acid-glow group" id="back-to-top">
+<span class="material-symbols-outlined text-3xl group-hover:-translate-y-1 transition-transform">arrow_upward</span>
+</button>
+<script>
+        // Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 1;
+            document.getElementById("progress-bar").style.transform = `scaleX(${scrolled})`;
+            
+            // Back to top
+            if (winScroll > 600) {
+                document.getElementById("back-to-top").style.display = "flex";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        };
+
+        document.getElementById("back-to-top").onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        // Horizontal Scroll for Work
+        const scrollContainer = document.getElementById('work-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>
